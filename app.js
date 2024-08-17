@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
-let port = 4000;
+require('dotenv').config();
+let port = process.env.port || 4000;
 app.listen(port,()=>{
     console.log(`product service listen to the port ${port}`)
 })
@@ -75,3 +76,10 @@ app.get('/product/test', async(req, res, next)=>{
         "product":product
     })
 })
+
+// app.get('/customet/test-data', async(req, res, next)=>{
+//   let product = await axios.get('http://localhost')
+//   res.json({
+//       "product":product
+//   })
+// })
